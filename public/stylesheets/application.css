@@ -1033,3 +1033,6 @@ ul, ol {
   .unbranded #footer {
     border: 0;
     background: #fff; }
+
+a.button-get-started {
+  background-image: url("/public/images/icon-pointer.png"); }
