@@ -1036,3 +1036,6 @@ ul, ol {
 
 a.button-get-started {
   background-image: url("/public/images/icon-pointer.png"); }
+
+.label-no-hint {
+  padding-bottom: 5px !important; }
