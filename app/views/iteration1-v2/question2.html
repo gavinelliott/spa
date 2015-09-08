@@ -6,7 +6,6 @@
 
 {{$content}}
 
-
 <!-- #page-container -->
 <main id="content" role="main" class="group">
 	<div class="phase-banner">
@@ -16,42 +15,29 @@
     	</p>
   	</div>
     <form>
-    <div class="grid-row">
-        <div class="column-two-thirds">
-    	<h1 class="heading-large">Lived or Worked Overseas?</h1>
-		<br/>
-		<!-- Unique ID -->
-		<div class="form-group">
-	        <fieldset>
-			    <legend>
-			    	<span class="form-label">
-			        	At any point have you lived or worked overseas outside of the United Kingdom and Isle of Man?
-			        </span>
-			    </legend>
-			    
-			    <br/>
-			    
-			    <div class="form-group form-group-compound">
-					<label class="block-label" data-target="example-ni-no" for="radio-indent-1">
-					    <input id="radio-indent-1" type="radio" name="radio-indent-group" value="Yes">
-					    Yes
+	    <div class="grid-row">
+	        <div class="column-two-thirds">
+		    	<h1 class="heading-large">Have you lived or worked outside of the United Kingdom and Isle of Man?</h1>
+				<!-- Unique ID -->
+				<fieldset class="inline">
+			    	<label class="block-label" for="radio-inline-1">
+						<input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+						Yes
+					</label>
+		    
+				    <label class="block-label" for="radio-inline-2">
+				    	<input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+						No
 				    </label>
-					<label class="block-label" for="radio-indent-2">
-					    <input id="radio-indent-2" type="radio" name="radio-indent-group" value="No">
-					    No
-				    </label>
-				</div>
-			</fieldset>        
-		</div>
-        
-        <div class="form-group">
-            <a href="not-calculated" class="button" value="Submit">Continue</a>
-        </div>
-        </div>
-	</div>      
+	  			</fieldset>   
+	  			<br/>
+				<div class="form-group">
+		            <a href="not-calculated" class="button" value="Submit">Continue</a>
+		        </div>
+			</div>
+    	</div>
     </form>
-
-    </main><!-- / #page-container -->
+ </main><!-- / #page-container -->
 
 {{/content}}
 
