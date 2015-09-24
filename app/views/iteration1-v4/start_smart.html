@@ -1,0 +1,40 @@
+{{<layout}}
+
+{{$pageTitle}}
+	State Pension Activation
+{{/pageTitle}}
+
+{{$content}}
+
+<!-- #page-container -->
+<main id="content" role="main" class="group">
+	<div class="phase-banner">
+    	<p>
+      		<strong class="phase-tag">ALPHA</strong>
+      		<span>This is a new service – your <a href="#">feedback</a> will help us to improve it.</span>
+    	</p>
+  	</div>
+  	
+    <div class="grid-row">
+        <div class="column-two-thirds">
+    	<h1 class="heading-xlarge">Get your State Pension</h1>
+		<img src="/public/images/v11-diagram.png"/>
+        <div class="form-group">
+	       	<label class="form-label strong" for="ni_number">
+	        	Your reference number
+	        	<p class="form-hint">Can be found on your Pension Activation letter.</p>
+	        </label>
+	        <input type="text" class="form-control" id="ni_number">
+        </div>
+
+		<div class="form-group">
+            <a href="authenticate" class="button" value="Submit">Continue</a> <br>
+            <a href="noauth" class="text">I don't have a Unique ID Number</a>
+        </div>
+        </div>
+	</div>      
+</main>
+
+{{/content}}
+
+{{/layout}}
