@@ -11,11 +11,16 @@ module.exports = {
 
     /* redirect routes for v4 */
     app.get('/iteration1-v4/question2', function (req, res) {
-      if(req.query["radio-group"] != "Never been married"){
-          res.redirect("iteration1-v4/error")
-      }
-      res.render('iteration1-v4/question2.html');
-    });
+	switch(req.query["radio-group"]) {
+	  case "Never been married":
+	    res.render("iteration1-v4/question2");
+	  case "Married":
+	    res.render("iteration1-v4/married-bank-details");
+	  default:
+	    //None of the above, go to error
+	    res.redirect("iteration1-v4/error");
+	}
+	});
 
     app.get('/iteration1-v4/calculated', function (req, res) {
       if(req.query["radio-inline-group"] == "Yes"){
@@ -26,9 +31,14 @@ module.exports = {
 
     app.get('/iteration1-v4/bank-details', function (req, res) {
       if(req.query["radio-indent-group"] == "No"){
-          res.redirect("iteration1-v4/deffer")
+          res.redirect("iteration1-v4/defer")
       }
       res.render('iteration1-v4/bank-details.html');
     });
   }
 };
+
+
+
+
+
