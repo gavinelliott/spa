@@ -14,7 +14,7 @@
       		<span>This is a new service – your <a href="#">feedback</a> will help us to improve it.</span>
     	</p>
   	</div>
-    <form>
+		<form method="get" action='calculated'>
 	    <div class="grid-row">
 	        <div class="column-two-thirds">
 		    	<h1 class="heading-xlarge">Have you lived or worked outside of the United Kingdom and Isle of Man?</h1>
@@ -24,16 +24,17 @@
 						<input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
 						Yes
 					</label>
-		    
+
 				    <label class="block-label" for="radio-inline-2">
 				    	<input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
 						No
 				    </label>
-	  			</fieldset>   
+	  			</fieldset>
 	  			<br/>
-				<div class="form-group">
-		            <a href="calculated" class="button" value="Submit">Continue</a>
-		        </div>
+					<div class="form-group">
+	        	 <input type="submit" class="button" value="Continue">
+	          <!--  <a href="question2" class="button" value="Submit">Continue</a> -->
+	        </div>
 			</div>
     	</div>
     </form>
