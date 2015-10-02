@@ -15,7 +15,7 @@ module.exports = {
 	  case "Never been married":
 	    res.render("iteration1-v4/question2");
 	  case "Married":
-	    res.render("iteration1-v4/married-bank-details");
+	    res.render("iteration1-v4/tel-number");
 	  default:
 	    //None of the above, go to error
 	    res.redirect("iteration1-v4/error");
