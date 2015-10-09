@@ -22,6 +22,17 @@ module.exports = {
 	}
 	});
 
+
+  app.post('/iteration1-v4/start_smart', function (req, res) {
+
+    if(req.body["ni_number"] == "Yes"){  res.redirect("iteration1-v4/authenticate") }else{
+
+        res.redirect("iteration1-v4/start_smart_error")
+    }
+
+    });
+
+
     app.get('/iteration1-v4/calculated', function (req, res) {
       if(req.query["radio-inline-group"] == "Yes"){
           res.redirect("iteration1-v4/error")
@@ -37,8 +48,3 @@ module.exports = {
     });
   }
 };
-
-
-
-
-

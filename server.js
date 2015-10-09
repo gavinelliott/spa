@@ -3,7 +3,7 @@ var path = require('path'),
     routes = require(__dirname + '/app/routes.js'),
     app = express(),
     port = (process.env.PORT || 3000),
-
+    bodyParser = require('body-parser'),
 // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
     password = process.env.PASSWORD,
@@ -30,8 +30,10 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_template/assets'));
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_frontend_toolkit'));
 
-app.use(express.favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images','favicon.ico'))); 
+app.use(express.favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images','favicon.ico')));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // send assetPath to all views
 app.use(function (req, res, next) {
