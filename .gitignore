@@ -1,4 +1,5 @@
 node_modules/*
 govuk_modules/*
 public/*
+.DS_Store
 .start.pid
