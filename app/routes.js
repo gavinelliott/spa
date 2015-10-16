@@ -51,18 +51,6 @@ module.exports = {
 
     });
 
-	
-	 app.post('/iteration2-v2/year-of-marriage', function (req, res) {
-
-    if(req.body["marriage_year"] == "1234"){  res.redirect("iteration2-v2/question2") }else{
-
-        res.redirect("iteration2-v2/wrong-marriage-year.html")
-    }
-
-    });
-
-
-
 
     app.get('/iteration2-v2/calculated', function (req, res) {
       if(req.query["radio-inline-group"] == "Yes"){
