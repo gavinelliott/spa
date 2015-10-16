@@ -14,30 +14,31 @@
       		<span>This is a new service – your <a href="#">feedback</a> will help us to improve it.</span>
     	</p>
   	</div>
-  	
-  	
+
+
   	<!-- Col - This should go to wrong-marriage-year if the year is not set as 1973 in the routes file, if it is set to 1973 then it should go through to Question 2 -->
-  	
-  	
-  	
+
+  	<form action="marriage-year" method="get">
+
     <div class="grid-row">
 	    <div class="column-two-thirds">
 		    <h1 class="heading-xlarge">What year were you married</h1>
-						
+
 			<div class="form-group">
 		        <label class="form-label" for="marriage_year">
 	        		If you have been married more than once, we require your current marriage date
 		        </label>
 		        <input type="text" class="form-control" id="marriage_year" name="marriage_year" />
         	</div>
-		        
-		    <div class="form-group">
-	        	<button class="button" value="Continue">Next</button>
-	        </div>
+
+				    <div class="form-group">
+								 <input type="submit" class="button" value="Next">
+			        </div>
+				</form>
         </div>
     </div>
-        
-         </div>      
+
+         </div>
 </main><!-- / #page-container -->
 
 {{/content}}

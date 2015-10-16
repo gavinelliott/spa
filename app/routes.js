@@ -21,7 +21,7 @@ module.exports = {
 	    res.redirect("iteration1-v4/error");
 	}
 	});
-	
+
 	/* redirect routes for v2 */
     app.get('/iteration2-v2/question2', function (req, res) {
 	switch(req.query["radio-group"]) {
@@ -36,7 +36,18 @@ module.exports = {
 	    res.redirect("iteration2-v2/question2");
 	}
 	});
-	
+
+  app.get('/iteration2-v2/marriage-year', function (req, res) {
+
+	switch(req.query["marriage_year"]) {
+    case "1973":
+    	  res.redirect("iteration2-v2/overseas");
+    default:
+	    //None of the above, go to error
+	    res.redirect("iteration2-v2/wrong-marriage-year");
+    }
+    });
+
 	app.get('/iteration2-v2/overseas', function (req, res) {
       res.render('iteration2-v2/question2');
     });
@@ -44,7 +55,7 @@ module.exports = {
 
     app.post('/iteration2-v2/start_smart', function (req, res) {
 
-    if(req.body["ni_number"] == "1234567843218765"){  res.redirect("iteration2-v2/authenticate") }else{
+    if(req.body["ni_number"].replace( /\s/g, "") == "1234567843218765"){  res.redirect("iteration2-v2/authenticate") }else{
 
         res.redirect("iteration2-v2/start_smart_error")
     }
@@ -67,4 +78,3 @@ module.exports = {
     });
   }
 };
-
