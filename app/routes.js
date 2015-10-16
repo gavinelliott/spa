@@ -21,30 +21,44 @@ module.exports = {
 	    res.redirect("iteration1-v4/error");
 	}
 	});
+	
+	/* redirect routes for v4 */
+    app.get('/iteration2-v2/question2', function (req, res) {
+	switch(req.query["radio-group"]) {
+	  case "Never been married":
+	    res.render("iteration2-v2/question2");
+	  case "Married":
+	    res.render("iteration2-v2/tel-number");
+	  default:
+	    //None of the above, go to error
+	    res.redirect("iteration2-v2/error");
+	}
+	});
 
 
-  app.post('/iteration1-v4/start_smart', function (req, res) {
+  app.post('/iteration2-v2/start_smart', function (req, res) {
 
-    if(req.body["ni_number"] == "Yes"){  res.redirect("iteration1-v4/authenticate") }else{
+    if(req.body["ni_number"] == "Yes"){  res.redirect("iteration2-v2/authenticate") }else{
 
-        res.redirect("iteration1-v4/start_smart_error")
+        res.redirect("iteration2-v2/start_smart_error")
     }
 
     });
 
 
-    app.get('/iteration1-v4/calculated', function (req, res) {
+    app.get('/iteration2-v2/calculated', function (req, res) {
       if(req.query["radio-inline-group"] == "Yes"){
-          res.redirect("iteration1-v4/error")
+          res.redirect("iteration2-v2/error")
       }
-      res.render('iteration1-v4/calculated.html');
+      res.render('iteration2-v2/calculated.html');
     });
 
-    app.get('/iteration1-v4/bank-details', function (req, res) {
+    app.get('/iteration2-v2/bank-details', function (req, res) {
       if(req.query["radio-indent-group"] == "No"){
-          res.redirect("iteration1-v4/defer")
+          res.redirect("iteration2-v2/defer")
       }
-      res.render('iteration1-v4/bank-details.html');
+      res.render('iteration2-v2/bank-details.html');
     });
   }
 };
+
