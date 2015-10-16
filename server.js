@@ -5,18 +5,19 @@ var path = require('path'),
     port = (process.env.PORT || 3000),
     bodyParser = require('body-parser'),
 // Grab environment variables specified in Procfile or as Heroku config vars
-    username = process.env.USERNAME,
-    password = process.env.PASSWORD,
-    env = process.env.NODE_ENV || 'development';
+  //  username = process.env.USERNAME,
+  //  password = process.env.PASSWORD,
+    env = process.env.NODE_ENV || 'production';
 
 // Authenticate against the environment-provided credentials, if running
 // the app in production (Heroku, effectively)
 if (env === 'production') {
-  if (!username || !password) {
+/*  if (!username || !password) {
     console.log('Username or password is not set, exiting.');
     process.exit(1);
   }
   app.use(express.basicAuth(username, password));
+  */
 }
 
 // Application settings
