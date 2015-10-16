@@ -29,6 +29,8 @@ module.exports = {
 	    res.render("iteration2-v2/question2");
 	  case "Married":
 	    res.render("iteration2-v2/year-of-marriage");
+	  case "Other":
+	    res.render("iteration2-v2/error");
 	  default:
 	    //None of the above, go to error
 	    res.redirect("iteration2-v2/question2");
@@ -40,7 +42,7 @@ module.exports = {
     });
 
 
-  app.post('/iteration2-v2/start_smart', function (req, res) {
+    app.post('/iteration2-v2/start_smart', function (req, res) {
 
     if(req.body["ni_number"] == "1234567843218765"){  res.redirect("iteration2-v2/authenticate") }else{
 
@@ -48,6 +50,18 @@ module.exports = {
     }
 
     });
+
+	
+	 app.post('/iteration2-v2/year-of-marriage', function (req, res) {
+
+    if(req.body["marriage_year"] == "1234"){  res.redirect("iteration2-v2/question2") }else{
+
+        res.redirect("iteration2-v2/wrong-marriage-year.html")
+    }
+
+    });
+
+
 
 
     app.get('/iteration2-v2/calculated', function (req, res) {
