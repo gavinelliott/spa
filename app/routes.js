@@ -36,6 +36,21 @@ module.exports = {
 	    res.redirect("iteration2-v2/question2");
 	}
 	});
+	
+	/* redirect routes for v2 */
+    app.get('/iteration3-v1/question2', function (req, res) {
+	switch(req.query["radio-group"]) {
+	  case "Never been married":
+	    res.render("iteration3-v1/question2");
+	  case "Married":
+	    res.render("iteration3-v1/year-of-marriage");
+	  case "Other":
+	    res.render("iteration3-v1/error");
+	  default:
+	    //None of the above, go to error
+	    res.redirect("iteration3-v1/question2");
+	}
+	});
 
   app.get('/iteration2-v2/marriage-year', function (req, res) {
 
@@ -58,6 +73,15 @@ module.exports = {
     if(req.body["ni_number"].replace( /\s/g, "") == "1234567843218765"){  res.redirect("iteration2-v2/authenticate") }else{
 
         res.redirect("iteration2-v2/start_smart_error")
+    }
+
+    });
+    
+    app.post('/iteration3-v1/start_smart', function (req, res) {
+
+    if(req.body["ni_number"].replace( /\s/g, "") == "1234567843218765"){  res.redirect("iteration3-v1/authenticate") }else{
+
+        res.redirect("iteration3-v1/start_smart_error")
     }
 
     });

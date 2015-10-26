@@ -46,3 +46,16 @@
 .align-right {
 	text-align: right;
 }
+
+.webchat {
+	position: fixed;
+    right: 40px;
+    bottom: 0;
+    background-color: #28a197;
+    z-index: 999;
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: 3px 3px 0px 0px;
+	text-decoration: none;
+	color: #fff!important;
+}
