@@ -79,7 +79,7 @@ module.exports = {
     
     app.post('/iteration3-v1/start_smart', function (req, res) {
 
-    if(req.body["ni_number"].replace( /\s/g, "") == "1234567843218765"){  res.redirect("iteration3-v1/authenticate") }else{
+    if(req.body["ni_number"].replace( /\s/g, "") == "1234567843218765"){  res.redirect("iteration3-v1/question1") }else{
 
         res.redirect("iteration3-v1/start_smart_error")
     }
