@@ -36,7 +36,7 @@ module.exports = {
 	    res.redirect("iteration2-v2/question2");
 	}
 	});
-	
+
 	/* redirect routes for v2 */
     app.get('/iteration3-v1/question2', function (req, res) {
 	switch(req.query["radio-group"]) {
@@ -76,7 +76,7 @@ module.exports = {
     }
 
     });
-    
+
     app.post('/iteration3-v1/start_smart', function (req, res) {
 
     if(req.body["ni_number"].replace( /\s/g, "") == "1234567843218765"){  res.redirect("iteration3-v1/question1") }else{
@@ -100,5 +100,22 @@ module.exports = {
       }
       res.render('iteration2-v2/bank-details.html');
     });
+
+
+    app.get('/iteration3-v1/marriage-year', function (req, res) {
+
+  	switch(req.query["marriage_year"]) {
+      case "1973":
+      	  res.redirect("iteration3-v1/overseas");
+      default:
+  	    //None of the above, go to error
+  	    res.redirect("iteration3-v1/wrong-marriage-year");
+      }
+      });
+
+      app.get('/iteration3-v1/overseas', function (req, res) {
+          res.render('iteration2-v2/question2');
+        });
+
   }
 };
