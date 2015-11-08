@@ -64,17 +64,7 @@ module.exports = {
     }
     });
 
-     app.get('/iteration3-v2/marriage-year', function (req, res) {
-
-	switch(req.query["marriage_year"]) {
-    case "1973":
-    	  res.redirect("iteration3-v2/calculated");
-    default:
-	    //None of the above, go to error
-	    res.redirect("iteration3-v2/error");
-    }
-    });
-
+    
 	app.get('/iteration2-v2/overseas', function (req, res) {
       res.render('iteration2-v2/question2');
     });
@@ -98,14 +88,7 @@ module.exports = {
 
     });
 
-    app.post('/iteration3-v2/start_smart', function (req, res) {
-
-    if(req.body["ni_number"].replace( /\s/g, "") == "1234567843218765"){  res.redirect("iteration3-v2/question2") }else{
-
-        res.redirect("iteration3-v2/start_smart_error")
-    }
-
-    });
+    
 
 
     app.get('/iteration2-v2/calculated', function (req, res) {
@@ -114,14 +97,6 @@ module.exports = {
       }
       res.render('iteration2-v2/calculated.html');
     });
-
-     app.get('/iteration3-v2/calculated', function (req, res) {
-      if(req.query["radio-inline-group"] == "Yes"){
-          res.redirect("iteration3-v2/error")
-      }
-      res.render('iteration2-v2/calculated');
-    });
-
 
     app.get('/iteration2-v2/bank-details', function (req, res) {
       if(req.query["radio-indent-group"] == "No"){
@@ -146,27 +121,56 @@ module.exports = {
           res.render('iteration2-v2/question2');
         });
 
-      app.get('/iteration3-v2/overseas', function (req, res) {
+      
+
+
+        /* Routes for Iteration3-v2 */
+
+
+
+		app.post('/iteration3-v2/start_smart', function (req, res) {
+			if(req.body["ni_number"].replace( /\s/g, "") == "1234567843218765"){  res.redirect("iteration3-v2/work") }else{
+				res.redirect("iteration3-v2/start_smart_error")
+	    	}
+		});
+		
+		app.get('/iteration3-v2/calculated', function (req, res) {
+	      if(req.query["radio-inline-group"] == "Yes"){
+	          res.redirect("iteration3-v2/error")
+	      }
+	      res.render('iteration2-v2/question1');
+    	});
+		
+		
+		app.get('/iteration3-v2/overseas', function (req, res) {
           res.render('iteration3-v2/question2');
         });
-
-
-        /* route catch dirty fix */
-
-        app.get('/iteration3-v2/question2', function (req, res) {
-
-          if(req.query["radio-group"] == "Never been married"){
-            res.redirect("iteration3-v2/calculated");
-          }else if(req.query["radio-group"] != undefined){
-  	           res.redirect("iteration3-v2/wrong-marriage-year");
-          }else{
-  	           res.render("iteration3-v2/question2");
-          }
-
-
-
-        });
-
+		
+		
+		/* redirect routes for v2 */
+	    app.get('/iteration3-v2/question2', function (req, res) {
+		switch(req.query["radio-group"]) {
+		  case "Never been married":
+		    res.render("iteration3-v2/calculated");
+		  case "Married":
+		    res.render("iteration3-v2/year-of-marriage");
+		  case "Other":
+		    res.render("iteration3-v2/error");
+		  default:
+		    //None of the above, go to error
+		    res.redirect("iteration3-v2/error");
+			}
+		});
+		
+		app.get('/iteration3-v2/marriage-year', function (req, res) {
+		switch(req.query["marriage_year"]) {
+			case "1973":
+				res.redirect("iteration3-v2/calculated");
+			default:
+				//None of the above, go to error
+				res.redirect("iteration3-v2/error");
+    		}
+    	});
 
 
   }
