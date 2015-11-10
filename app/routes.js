@@ -64,7 +64,7 @@ module.exports = {
     }
     });
 
-    
+
 	app.get('/iteration2-v2/overseas', function (req, res) {
       res.render('iteration2-v2/question2');
     });
@@ -88,7 +88,7 @@ module.exports = {
 
     });
 
-    
+
 
 
     app.get('/iteration2-v2/calculated', function (req, res) {
@@ -121,7 +121,7 @@ module.exports = {
           res.render('iteration2-v2/question2');
         });
 
-      
+
 
 
         /* Routes for Iteration3-v2 */
@@ -133,20 +133,20 @@ module.exports = {
 				res.redirect("iteration3-v2/start_smart_error")
 	    	}
 		});
-		
+
 		app.get('/iteration3-v2/calculated', function (req, res) {
 	      if(req.query["radio-inline-group"] == "Yes"){
 	          res.redirect("iteration3-v2/error")
 	      }
-	      res.render('iteration2-v2/question1');
+	      res.render('iteration3-v1/calculated');
     	});
-		
-		
+
+
 		app.get('/iteration3-v2/overseas', function (req, res) {
           res.render('iteration3-v2/question2');
         });
-		
-		
+
+
 		/* redirect routes for v2 */
 	    app.get('/iteration3-v2/question2', function (req, res) {
 		switch(req.query["radio-group"]) {
@@ -161,7 +161,7 @@ module.exports = {
 		    res.redirect("iteration3-v2/error");
 			}
 		});
-		
+
 		app.get('/iteration3-v2/marriage-year', function (req, res) {
 		switch(req.query["marriage_year"]) {
 			case "1973":
