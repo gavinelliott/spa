@@ -134,13 +134,6 @@ module.exports = {
 	    	}
 		});
 
-		app.get('/iteration3-v2/calculated', function (req, res) {
-	      if(req.query["radio-inline-group"] == "Yes"){
-	          res.redirect("iteration3-v2/error")
-	      }
-	      res.render('iteration3-v1/calculated');
-    	});
-
 
 		app.get('/iteration3-v2/overseas', function (req, res) {
           res.render('iteration3-v2/question2');
@@ -149,7 +142,13 @@ module.exports = {
 
 		/* redirect routes for v2 */
 	    app.get('/iteration3-v2/question2', function (req, res) {
-		switch(req.query["radio-group"]) {
+
+        if(req.query["radio-inline-group"]== "Yes"){
+	          res.redirect("iteration3-v2/error")
+	      }else if(req.query["radio-inline-group"]== "No"){
+	      res.render('iteration3-v1/question1');}
+
+    switch(req.query["radio-group"]) {
 		  case "Never been married":
 		    res.render("iteration3-v2/calculated");
 		  case "Married":
